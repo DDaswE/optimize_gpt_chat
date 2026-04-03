@@ -1,0 +1,112 @@
+:root {
+  --ogc-banner-max: min(860px, calc(100vw - 40px));
+}
+
+html[data-ogc-enabled="true"] section[data-turn].ogc-visible-turn {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 380px;
+}
+
+html[data-ogc-enabled="true"][data-ogc-compact-actions="true"] section[data-turn] [role="group"][aria-label="Response actions"],
+html[data-ogc-enabled="true"][data-ogc-compact-actions="true"] section[data-turn] [role="group"][aria-label="Your message actions"] {
+  transition: none !important;
+  mask-image: none !important;
+  mask-size: auto !important;
+}
+
+html[data-ogc-enabled="true"] .ogc-banner {
+  width: 100%;
+  max-width: var(--ogc-banner-max);
+  margin: 18px auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(26, 26, 26, 0.72);
+  color: #f2f2f2;
+  backdrop-filter: blur(10px);
+}
+
+html.light[data-ogc-enabled="true"] .ogc-banner {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  color: #1f1f1f;
+}
+
+html[data-ogc-enabled="true"] .ogc-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 14px;
+}
+
+html[data-ogc-enabled="true"] .ogc-banner-copy {
+  min-width: 0;
+}
+
+html[data-ogc-enabled="true"] .ogc-banner-title {
+  margin: 0;
+  font-size: 0.96rem;
+  font-weight: 650;
+}
+
+html[data-ogc-enabled="true"] .ogc-banner-text {
+  margin: 4px 0 0;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+html.light[data-ogc-enabled="true"] .ogc-banner-text {
+  color: rgba(0, 0, 0, 0.58);
+}
+
+html[data-ogc-enabled="true"] .ogc-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+html[data-ogc-enabled="true"] .ogc-banner-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.55rem 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: inherit;
+  font: inherit;
+  font-size: 0.84rem;
+  cursor: pointer;
+}
+
+html.light[data-ogc-enabled="true"] .ogc-banner-button {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+html[data-ogc-enabled="true"] .ogc-banner-button:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+html.light[data-ogc-enabled="true"] .ogc-banner-button:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+html[data-ogc-enabled="true"] .ogc-banner-button.ogc-banner-primary {
+  background: #2563eb;
+  color: #fff;
+}
+
+html[data-ogc-enabled="true"] .ogc-banner-button.ogc-banner-primary:hover {
+  background: #1d4ed8;
+}
+
+@media (max-width: 720px) {
+  html[data-ogc-enabled="true"] .ogc-banner-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  html[data-ogc-enabled="true"] .ogc-banner-actions {
+    justify-content: flex-start;
+  }
+}
