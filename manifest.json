@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "optimize_gpt_chat",
+  "version": "0.1.0",
+  "description": "Keeps long ChatGPT conversations responsive by reducing frontend rendering overhead without starting a new chat.",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_title": "optimize_gpt_chat",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*"
+      ],
+      "js": [
+        "settings.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}
