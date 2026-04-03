@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>optimize_gpt_chat</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="card">
+        <div class="header">
+          <div>
+            <p class="eyebrow">optimize_gpt_chat</p>
+            <h1>Long chat speed</h1>
+          </div>
+          <label class="switch">
+            <input id="enabled" type="checkbox">
+            <span>On</span>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Keep recent turns rendered <output id="keepRecentTurnsValue"></output></span>
+          <input id="keepRecentTurns" type="range" min="8" max="120" step="1">
+        </label>
+
+        <label class="field">
+          <span>Reveal older turns in batches of <output id="revealBatchSizeValue"></output></span>
+          <input id="revealBatchSize" type="range" min="1" max="40" step="1">
+        </label>
+
+        <label class="toggle-row">
+          <span>
+            <strong>Skip offscreen rendering</strong>
+            <small>Uses browser rendering containment on visible turns.</small>
+          </span>
+          <input id="useVisibilityBoost" type="checkbox">
+        </label>
+
+        <label class="toggle-row">
+          <span>
+            <strong>Compact action bars</strong>
+            <small>Removes some mask and transition overhead from hover toolbars.</small>
+          </span>
+          <input id="compactActionBars" type="checkbox">
+        </label>
+
+        <div class="note">
+          This extension keeps the same chat thread. It only reduces frontend rendering work in your browser.
+        </div>
+
+        <p id="status" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="settings.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
